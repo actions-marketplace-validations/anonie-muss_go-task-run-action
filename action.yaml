@@ -1,0 +1,23 @@
+name: "Go Task Runner"
+description: 'Installs go-task and run tasks'
+inputs:
+  version:
+    description: 'Version of go-task to use'
+    required: false
+    default: 'latest'
+  tasks:
+    description: "Tasks to run"
+    required: true
+outputs:
+  output:
+    description: "Task output"
+    value: ${{ steps.task-run.outputs.output}}
+runs:
+  using: "composite"
+  steps:
+    - name: "Install latest go-task"
+      id: install
+      run: sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -b ~/.local/bin -d "${{ inputs.version }}"
+    - name: "Run tasks"
+      id: task-run
+      run: ~/.local/bin/task ${{ inputs.tasks }}
