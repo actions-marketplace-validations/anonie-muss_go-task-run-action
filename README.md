@@ -1,6 +1,6 @@
 # go-task-run-action
 
-Install task (https://taskfile.dev/) and run the specified tasks
+Install task (https://taskfile.dev/) and run the specified tasks. Requires `curl`.
 
 ## Input
 ```yaml
