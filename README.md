@@ -10,7 +10,7 @@ inputs:
     required: false
     default: "latest"
   tasks:
-    description: "Tasks to run"
+    description: "Tasks to run, separated by spaces"
     required: true
 ```
 
